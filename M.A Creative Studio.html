@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Discover delicious favourites at M.A Creative Studio — Shami Kabab, ketchup and Dahi Baray. Order directly on WhatsApp." />
+  <title>M.A Creative Studio | Good Food, Great Mood</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --red: #ed263d;
+      --red-dark: #a90f25;
+      --ink: #101014;
+      --panel: #19191f;
+      --muted: #aaaab4;
+      --cream: #fff5ed;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: #fff; background: var(--ink);
+      font-family: "DM Sans", sans-serif; overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    .topline { height: 5px; background: linear-gradient(90deg, #8e071c, #ff4357, #ff9a62); }
+    header {
+      width: min(1160px, calc(100% - 40px)); margin: auto; height: 82px;
+      display: flex; align-items: center; justify-content: space-between; gap: 20px;
+    }
+    .brand { display: flex; align-items: center; gap: 11px; font-weight: 800; letter-spacing: -.6px; }
+    .brand-mark {
+      width: 42px; height: 42px; border-radius: 13px; display: grid; place-items: center;
+      background: linear-gradient(145deg, #ff5264, #b80e2b); box-shadow: 0 7px 25px #ed263d55;
+      font-size: 20px;
+    }
+    .brand-name { font-size: 17px; line-height: 1.05; }
+    .brand-name span { display: block; color: #ff6575; font-size: 10px; letter-spacing: 3px; margin-top: 5px; }
+    nav { display: flex; gap: 30px; color: #d0cdd2; font-size: 13px; font-weight: 600; }
+    nav a:hover { color: #ff6575; }
+    .nav-order, .btn {
+      border: 0; border-radius: 999px; background: var(--red); color: white; font-weight: 800;
+      padding: 13px 21px; display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+      box-shadow: 0 9px 28px #ed263d38; transition: .2s ease; cursor: pointer;
+    }
+    .nav-order:hover, .btn:hover { transform: translateY(-3px); background: #ff4055; box-shadow: 0 13px 34px #ed263d55; }
+    .hero {
+      position: relative; min-height: 590px; display: flex; align-items: center; overflow: hidden;
+      background: radial-gradient(ellipse at 78% 48%, #671321 0%, #291016 28%, #111115 66%);
+    }
+    .hero::before {
+      content: ""; position: absolute; width: 520px; height: 520px; right: -100px; top: 35px;
+      border: 1px solid #ff657522; border-radius: 50%; box-shadow: 0 0 0 45px #ff657509, 0 0 0 95px #ff657506;
+    }
+    .hero-inner { width: min(1160px, calc(100% - 40px)); margin: auto; display: grid; grid-template-columns: 1.05fr .95fr; gap: 40px; align-items: center; position: relative; z-index: 1; padding: 65px 0 80px; }
+    .eyebrow { color: #ff7b87; text-transform: uppercase; letter-spacing: 3px; font-size: 11px; font-weight: 800; display: flex; align-items: center; gap: 10px; }
+    .eyebrow::before { content: ""; width: 27px; height: 2px; background: var(--red); }
+    h1 { font: 800 clamp(48px, 6vw, 76px)/.99 "Playfair Display", serif; letter-spacing: -2.5px; margin: 22px 0; }
+    h1 em { color: #ff5268; font-style: normal; }
+    .hero-copy { max-width: 480px; color: #c5bec3; line-height: 1.8; font-size: 15px; }
+    .hero-actions { display: flex; align-items: center; gap: 22px; margin-top: 30px; flex-wrap: wrap; }
+    .text-link { color: #f5dfe2; font-size: 13px; font-weight: 700; }
+    .text-link span { color: #ff6575; margin-left: 5px; }
+    .hero-art { min-height: 390px; display: grid; place-items: center; position: relative; }
+    .food-orbit {
+      width: min(390px, 82vw); aspect-ratio: 1; border-radius: 50%;
+      background: radial-gradient(circle at 38% 30%, #ffb27d, #e84b42 40%, #8b1529 68%, #3a101b 72%);
+      box-shadow: 0 35px 90px #0009, inset -20px -25px 55px #45071388, 0 0 70px #ed263d22;
+      display: grid; place-items: center; position: relative; transform: rotate(-8deg);
+      border: 9px solid #ffffff12;
+    }
+    .food-orbit::before { content: ""; position: absolute; inset: 17px; border: 1px dashed #fff8; border-radius: 50%; }
+    .food-emoji { font-size: clamp(120px, 17vw, 190px); filter: drop-shadow(0 20px 13px #3c081b99); transform: rotate(8deg); }
+    .floating-tag {
+      position: absolute; padding: 13px 17px; border: 1px solid #ffffff20; border-radius: 15px;
+      background: #1b1519d9; backdrop-filter: blur(12px); box-shadow: 0 12px 35px #0006;
+      font-size: 12px; font-weight: 700;
+    }
+    .floating-tag small { display: block; color: #aaa; font-weight: 500; margin-top: 4px; }
+    .tag-one { top: 42px; left: -3px; }
+    .tag-two { bottom: 42px; right: -4px; }
+    .spark { position: absolute; color: #ffb45d; font-size: 25px; }
+    .spark.s1 { top: 30px; right: 55px; } .spark.s2 { bottom: 40px; left: 30px; font-size: 17px; }
+    .strip { background: var(--red); padding: 15px 20px; overflow: hidden; }
+    .strip-inner { display: flex; justify-content: center; gap: 38px; flex-wrap: wrap; color: #fff; font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; }
+    .strip b { color: #ffbd9d; }
+    section { width: min(1160px, calc(100% - 40px)); margin: auto; padding: 92px 0; }
+    .section-head { text-align: center; max-width: 620px; margin: 0 auto 43px; }
+    .section-head .eyebrow { justify-content: center; }
+    .section-head .eyebrow::after { content: ""; width: 27px; height: 2px; background: var(--red); }
+    h2 { font: 800 clamp(34px, 4vw, 48px)/1.1 "Playfair Display", serif; margin: 15px 0; }
+    .section-head p { color: var(--muted); line-height: 1.7; font-size: 14px; }
+    .products { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .product {
+      background: linear-gradient(155deg, #202027, #17171c); border: 1px solid #ffffff12;
+      border-radius: 23px; overflow: hidden; transition: .25s ease; position: relative;
+    }
+    .product:hover { transform: translateY(-8px); border-color: #ed263d88; box-shadow: 0 22px 45px #0005; }
+    .product-visual { height: 220px; display: grid; place-items: center; position: relative; overflow: hidden; }
+    .product-visual::before { content: ""; position: absolute; width: 190px; height: 190px; border-radius: 50%; background: #ffffff13; }
+    .product-visual span { position: relative; font-size: 105px; filter: drop-shadow(0 15px 12px #0007); transition: .3s; }
+    .product:hover .product-visual span { transform: scale(1.09) rotate(-5deg); }
+    .kabab { background: radial-gradient(circle at 50% 40%, #854019, #3b2018 75%); }
+    .ketchup { background: radial-gradient(circle at 50% 40%, #a52b31, #3b151c 75%); }
+    .dahi { background: radial-gradient(circle at 50% 40%, #8d594e, #302027 75%); }
+    .product-content { padding: 23px 23px 25px; }
+    .product-kicker { color: #ff6979; font-size: 10px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; }
+    h3 { font: 700 24px "Playfair Display", serif; margin: 9px 0; }
+    .product-content p { color: #aaaab4; font-size: 13px; line-height: 1.75; min-height: 68px; }
+    .product-bottom { display: flex; align-items: center; justify-content: space-between; margin-top: 18px; padding-top: 17px; border-top: 1px solid #ffffff12; }
+    .learn { font-size: 12px; color: #ff7785; font-weight: 800; }
+    .mini-order { color: #fff; background: #ffffff12; padding: 9px 13px; border-radius: 99px; font-size: 11px; font-weight: 800; }
+    .about-wrap { background: #17171c; border-top: 1px solid #ffffff0b; border-bottom: 1px solid #ffffff0b; }
+    .about-inner { width: min(1160px, calc(100% - 40px)); margin: auto; padding: 85px 0; display: grid; grid-template-columns: .9fr 1.1fr; gap: 65px; align-items: center; }
+    .about-art { min-height: 330px; border-radius: 25px; background: radial-gradient(circle at 50% 45%, #a82135, #42121f 62%, #24151a); display: grid; place-items: center; position: relative; overflow: hidden; }
+    .about-art::before, .about-art::after { content: ""; position: absolute; width: 270px; height: 270px; border: 1px solid #ffffff25; border-radius: 50%; }
+    .about-art::after { width: 340px; height: 340px; }
+    .about-art span { font-size: 125px; z-index: 1; filter: drop-shadow(0 15px 12px #0007); }
+    .about-copy p { color: #b8b5bd; font-size: 14px; line-height: 1.9; }
+    .values { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 25px; }
+    .value { border-left: 2px solid var(--red); padding: 4px 0 4px 13px; }
+    .value strong { display: block; font-size: 13px; }
+    .value small { color: #96939c; font-size: 11px; display: block; margin-top: 5px; }
+    .contact { text-align: center; padding: 90px 25px; border-radius: 28px; margin-top: 85px; margin-bottom: 85px; background: radial-gradient(ellipse at 50% 0%, #7b182b, #271117 62%, #191317); border: 1px solid #ff657522; }
+    .contact p { color: #d0c2c6; max-width: 540px; margin: 0 auto 27px; line-height: 1.8; font-size: 14px; }
+    .phone { display: block; color: #ff8b98; font-weight: 800; margin-top: 18px; letter-spacing: 1px; }
+    footer { border-top: 1px solid #ffffff12; padding: 27px 20px; color: #85828b; text-align: center; font-size: 11px; }
+    footer strong { color: #ff7180; }
+    .whatsapp-float {
+      position: fixed; right: 22px; bottom: 22px; z-index: 5; width: 57px; height: 57px;
+      border-radius: 50%; display: grid; place-items: center; background: #20c76a; color: white;
+      font-size: 27px; box-shadow: 0 8px 28px #0008; transition: .2s;
+    }
+    .whatsapp-float:hover { transform: translateY(-4px) scale(1.04); }
+    @media (max-width: 800px) {
+      nav { display: none; }
+      .hero-inner { grid-template-columns: 1fr; text-align: center; padding-top: 55px; gap: 15px; }
+      .hero .eyebrow { justify-content: center; }
+      .hero-copy { margin: auto; }
+      .hero-actions { justify-content: center; }
+      .hero-art { min-height: 330px; }
+      .food-orbit { width: 290px; }
+      .food-emoji { font-size: 140px; }
+      .tag-one { left: 0; } .tag-two { right: 0; }
+      .products { grid-template-columns: 1fr; max-width: 470px; margin: auto; }
+      .product-visual { height: 200px; }
+      .about-inner { grid-template-columns: 1fr; gap: 35px; }
+      .about-art { min-height: 260px; }
+    }
+    @media (max-width: 430px) {
+      header { width: calc(100% - 28px); }
+      .nav-order { padding: 11px 14px; font-size: 11px; }
+      .brand-name { font-size: 14px; }
+      section { width: calc(100% - 30px); padding: 70px 0; }
+      .about-inner { width: calc(100% - 30px); }
+      .values { grid-template-columns: 1fr; }
+      .strip-inner { gap: 13px 20px; font-size: 9px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topline"></div>
+  <header>
+    <a class="brand" href="#home" aria-label="M.A Creative Studio home">
+      <div class="brand-mark">M.A</div>
+      <div class="brand-name">M.A CREATIVE STUDIO<span>GOOD FOOD, GREAT MOOD</span></div>
+    </a>
+    <nav>
+      <a href="#home">Home</a><a href="#menu">Our Food</a><a href="#about">About Us</a><a href="#contact">Contact</a>
+    </nav>
+    <a class="nav-order" href="https://wa.me/923212471077?text=Hello%20M.A%20Creative%20Studio!%20I%20would%20like%20to%20place%20an%20order." target="_blank" rel="noopener">Order Now ↗</a>
+  </header>
+
+  <main>
+    <div class="hero" id="home">
+      <div class="hero-inner">
+        <div>
+          <div class="eyebrow">A little taste of happiness</div>
+          <h1>Big flavour.<br><em>Happy bites.</em></h1>
+          <p class="hero-copy">From much-loved Pakistani favourites to everyday table essentials, discover food made to bring a little extra joy to your meals.</p>
+          <div class="hero-actions">
+            <a class="btn" href="https://wa.me/923212471077?text=Hello%20M.A%20Creative%20Studio!%20I%20would%20like%20to%20place%20an%20order." target="_blank" rel="noopener">Order on WhatsApp <span>↗</span></a>
+            <a class="text-link" href="#menu">Explore our food <span>↓</span></a>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="Illustration of delicious food">
+          <div class="food-orbit"><div class="food-emoji">🍽️</div></div>
+          <div class="floating-tag tag-one">MADE FOR SHARING<small>Good food brings us together</small></div>
+          <div class="floating-tag tag-two">FLAVOUR FIRST ✨<small>Find your new favourite</small></div>
+          <div class="spark s1">✦</div><div class="spark s2">✧</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="strip"><div class="strip-inner"><span>GOOD FOOD <b>✦</b></span><span>GOOD MOOD <b>✦</b></span><span>GREAT FLAVOUR <b>✦</b></span><span>MADE TO ENJOY <b>✦</b></span></div></div>
+
+    <section id="menu">
+      <div class="section-head">
+        <div class="eyebrow">The tasty lineup</div>
+        <h2>Meet your new favourites.</h2>
+        <p>Explore the flavours on our menu. Tap Order Now to contact us directly on WhatsApp and ask about availability, prices and ordering.</p>
+      </div>
+      <div class="products">
+        <article class="product">
+          <div class="product-visual kabab"><span>🍢</span></div>
+          <div class="product-content">
+            <div class="product-kicker">A desi classic</div>
+            <h3>Shami Kabab</h3>
+            <p>A much-loved Pakistani favourite, known for its savoury, spiced flavour. Enjoy it in a bun, with paratha, or as a tasty side with your meal.</p>
+            <div class="product-bottom"><span class="learn">FULL OF FLAVOUR</span><a class="mini-order" href="https://wa.me/923212471077?text=Hello!%20I%20am%20interested%20in%20Shami%20Kabab." target="_blank" rel="noopener">Ask / Order ↗</a></div>
+          </div>
+        </article>
+        <article class="product">
+          <div class="product-visual ketchup"><span>🍅</span></div>
+          <div class="product-content">
+            <div class="product-kicker">The perfect sidekick</div>
+            <h3>Ketchup</h3>
+            <p>A classic tomato companion for fries, sandwiches, snacks and more. Add a familiar sweet-and-tangy touch to your favourite bites.</p>
+            <div class="product-bottom"><span class="learn">A LITTLE EXTRA ZING</span><a class="mini-order" href="https://wa.me/923212471077?text=Hello!%20I%20am%20interested%20in%20Ketchup." target="_blank" rel="noopener">Ask / Order ↗</a></div>
+          </div>
+        </article>
+        <article class="product">
+          <div class="product-visual dahi"><span>🥣</span></div>
+          <div class="product-content">
+            <div class="product-kicker">Cool &amp; comforting</div>
+            <h3>Dahi Baray</h3>
+            <p>A traditional favourite featuring soft lentil dumplings served with creamy yoghurt. A refreshing treat with a lovely mix of flavours.</p>
+            <div class="product-bottom"><span class="learn">A DESI DELIGHT</span><a class="mini-order" href="https://wa.me/923212471077?text=Hello!%20I%20am%20interested%20in%20Dahi%20Baray." target="_blank" rel="noopener">Ask / Order ↗</a></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <div class="about-wrap" id="about">
+      <div class="about-inner">
+        <div class="about-art"><span>❤️‍🔥</span></div>
+        <div class="about-copy">
+          <div class="eyebrow">A little about us</div>
+          <h2>Food is better when it's shared.</h2>
+          <p>Welcome to M.A Creative Studio! We're bringing together familiar favourites and delicious flavours in one place. Whether you're planning a snack, adding something special to your meal, or craving a desi classic, we're happy to help you find what you're looking for.</p>
+          <p>Have a question about a product or want to place an order? Send us a WhatsApp message and we'll be in touch.</p>
+          <div class="values">
+            <div class="value"><strong>❤️ Made for food lovers</strong><small>Familiar favourites for every craving.</small></div>
+            <div class="value"><strong>💬 Easy ordering</strong><small>Contact us directly on WhatsApp.</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section id="contact" class="contact">
+      <div class="eyebrow" style="justify-content:center">Your next tasty order starts here</div>
+      <h2>Craving something delicious?</h2>
+      <p>Message M.A Creative Studio on WhatsApp to ask about products, prices and availability. We'd love to hear from you!</p>
+      <a class="btn" href="https://wa.me/923212471077?text=Hello%20M.A%20Creative%20Studio!%20I%20would%20like%20to%20place%20an%20order." target="_blank" rel="noopener">Chat &amp; Order on WhatsApp ↗</a>
+      <a class="phone" href="tel:+923212471077">+92 321 2471077</a>
+    </section>
+  </main>
+
+  <footer>© <span id="year">2026</span> <strong>M.A Creative Studio</strong>. Made with flavour. ❤️</footer>
+  <a class="whatsapp-float" href="https://wa.me/923212471077?text=Hello%20M.A%20Creative%20Studio!" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">✆</a>
+</body>
+</html>
